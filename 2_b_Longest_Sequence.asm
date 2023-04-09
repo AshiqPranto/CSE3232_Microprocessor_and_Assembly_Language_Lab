@@ -33,15 +33,17 @@ MAIN PROC
     JMP INPUT
     EXIT_FROM_INPUT:
     MOV LEN_OF_STR,SI
-
+    
     LOOP1:
         MOV SI,START
         MOV CX,1
         LOOP2:
             MOV AL,STR1[SI]
-            MOV AH,STR1[SI+1]
-            CMP AH,AL
-            JLE BREAK_FROM_LOOP2
+            ; MOV AH,STR1[SI+1]
+            MOV AH,AL
+            INC AH
+            CMP AH,STR1[SI+1]
+            JNE BREAK_FROM_LOOP2
             INC SI
             INC CX
         JMP LOOP2
