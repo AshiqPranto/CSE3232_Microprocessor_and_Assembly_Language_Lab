@@ -5,7 +5,8 @@
     INPUT_MSG1 DB 'ENTER YOUR STRING: $'
     STR DB 100 DUP('$')
     OUTPUT_MSG1 DB 'AFTER SORTING: $'
-    NEW_LINE DB '0AH','0DH','$'
+    NEW_LINE DB 0AH,0DH,'$'
+    
     N DW ?
 
 .CODE
@@ -19,6 +20,7 @@ MAIN PROC
     LEA DX,INPUT_MSG1
     INT 21H
 
+   
     ; TAKE INPUT
     XOR CX,CX
     XOR SI,SI
